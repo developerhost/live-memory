@@ -10,7 +10,8 @@
     "signout",
     "superjson",
     "trpc",
-    "typesafety"
+    "typesafety",
+    "nextui"
   ], // 固有名詞などチェックをスキップしたい単語を登録する
   "dictionaries": [
     "softwareTerms",
