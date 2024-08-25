@@ -5,6 +5,14 @@ import { type Metadata } from "next";
 
 import { TRPCReactProvider } from "@/trpc/react";
 
+import { Inter as FontSans } from "next/font/google";
+import { cn } from "@/lib/utils";
+
+const fontSans = FontSans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+});
+
 export const metadata: Metadata = {
   title: "Live Memory ライブ履歴からプロフィールを簡単に作成",
   description:
@@ -17,7 +25,12 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="ja" className={`${GeistSans.variable}`}>
-      <body>
+      <body
+        className={cn(
+          "min-h-screen bg-background font-sans antialiased",
+          fontSans.variable,
+        )}
+      >
         <TRPCReactProvider>{children}</TRPCReactProvider>
       </body>
     </html>

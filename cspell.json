@@ -3,15 +3,16 @@
   "language": "en",
   "words": [
     "CLIENTVAR",
+    "clsx",
     "NEXTAUTH",
     "nextjs",
+    "nextui",
     "runtimes",
     "signin",
     "signout",
     "superjson",
     "trpc",
-    "typesafety",
-    "nextui"
+    "typesafety"
   ], // 固有名詞などチェックをスキップしたい単語を登録する
   "dictionaries": [
     "softwareTerms",
