@@ -3,7 +3,6 @@ import Link from "next/link";
 import { LatestPost } from "@/app/_components/post";
 import { getServerAuthSession } from "@/server/auth";
 import { api, HydrateClient } from "@/trpc/server";
-import { Button } from "@nextui-org/react";
 
 export default async function Home() {
   const hello = await api.post.hello({ text: "from tRPC" });
@@ -59,15 +58,6 @@ export default async function Home() {
               </Link>
             </div>
           </div>
-          <div className="flex flex-wrap items-center gap-4">
-            <Button color="default">Default</Button>
-            <Button color="primary">Primary</Button>
-            <Button color="secondary">Secondary</Button>
-            <Button color="success">Success</Button>
-            <Button color="warning">Warning</Button>
-            <Button color="danger">Danger</Button>
-          </div>
-
           {session?.user && <LatestPost />}
         </div>
       </main>

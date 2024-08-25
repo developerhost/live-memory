@@ -4,7 +4,6 @@ import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
 
 import { TRPCReactProvider } from "@/trpc/react";
-import { Providers } from "./providers";
 
 export const metadata: Metadata = {
   title: "Live Memory ライブ履歴からプロフィールを簡単に作成",
@@ -19,9 +18,7 @@ export default function RootLayout({
   return (
     <html lang="ja" className={`${GeistSans.variable}`}>
       <body>
-        <TRPCReactProvider>
-          <Providers>{children}</Providers>
-        </TRPCReactProvider>
+        <TRPCReactProvider>{children}</TRPCReactProvider>
       </body>
     </html>
   );
