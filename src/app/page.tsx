@@ -1,29 +1,8 @@
-// import Link from "next/link";
-
-// import { LatestPost } from "@/app/_components/post";
-// import { getServerAuthSession } from "@/server/auth";
-import { HydrateClient } from "@/trpc/server";
+import { api, HydrateClient } from "@/trpc/server";
 import UserCardList from "./_components/user/UserCardList";
 
 export default async function Home() {
-  // const hello = await api.post.hello({ text: "from tRPC" });
-  // const session = await getServerAuthSession();
-  const users = [
-    {
-      id: "1",
-      name: "John Doe",
-      email: "john@example.com",
-      avatarUrl: "/avatars/john.jpg",
-    },
-    {
-      id: "2",
-      name: "Jane Smith",
-      email: "jane@example.com",
-      avatarUrl: "/avatars/jane.jpg",
-    },
-  ];
-
-  // void api.post.getLatest.prefetch();
+  const users = await api.user.getUserList();
 
   return (
     <HydrateClient>

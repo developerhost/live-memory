@@ -1,26 +1,19 @@
 import React from "react";
 import { UserCard } from "./UserCard";
+import { type RouterOutputs } from "@/trpc/react";
 
-type User = {
-  id: string;
-  name: string;
-  email: string;
-  avatarUrl: string;
+type UserListProps = {
+  users: RouterOutputs["user"]["getUserList"];
 };
 
-type UserCardListProps = {
-  users: User[];
-};
-
-export function UserCardList({ users }: UserCardListProps) {
+export function UserCardList({ users }: UserListProps) {
   return (
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {users.map((user) => (
         <UserCard
           key={user.id}
-          name={user.name}
-          email={user.email}
-          avatarUrl={user.avatarUrl}
+          name={user.name ?? "名無し"}
+          image={user.image ?? ""}
         />
       ))}
     </div>
