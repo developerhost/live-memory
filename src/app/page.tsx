@@ -3,7 +3,6 @@
 // import { LatestPost } from "@/app/_components/post";
 // import { getServerAuthSession } from "@/server/auth";
 import { HydrateClient } from "@/trpc/server";
-import { Button } from "@/components/ui/button";
 import UserCardList from "./_components/user/UserCardList";
 
 export default async function Home() {
