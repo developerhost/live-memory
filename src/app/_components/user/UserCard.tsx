@@ -8,7 +8,7 @@ type UserCardProps = {
   avatarUrl: string;
 };
 
-export function UserCard({ name, email, avatarUrl }: UserCardProps) {
+export function UserCard({ name, email }: UserCardProps) {
   return (
     <Card className="mx-auto max-w-sm shadow-lg">
       <CardContent className="flex items-center space-x-4">
