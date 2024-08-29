@@ -9,7 +9,7 @@ type UserCardProps = {
 
 export function UserCard({ name, image }: UserCardProps) {
   return (
-    <Card className="mx-auto w-[200px] bg-transparent pt-2 shadow-lg">
+    <Card className="mx-auto w-[200px] bg-white bg-opacity-10 pt-2 shadow-lg">
       <CardContent className="flex items-center space-x-4">
         <Avatar>
           <AvatarImage src={image} alt="avatar" />
