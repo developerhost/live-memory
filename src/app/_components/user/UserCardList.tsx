@@ -12,6 +12,7 @@ export function UserCardList({ users }: UserListProps) {
       {users.map((user) => (
         <UserCard
           key={user.id}
+          id={user.id}
           name={user.name ?? "名無し"}
           image={user.image ?? ""}
         />
