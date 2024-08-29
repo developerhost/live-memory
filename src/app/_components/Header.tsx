@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { getServerAuthSession } from "@/server/auth";
 import Link from "next/link";
+import { PersonIcon, ExitIcon, EnterIcon } from "@radix-ui/react-icons";
 
 export default async function Header() {
   const session = await getServerAuthSession();
@@ -28,16 +29,22 @@ export default async function Header() {
           </DropdownMenuTrigger>
           <DropdownMenuContent>
             <DropdownMenuItem asChild>
-              <Link href={`/user/${session.user.id}`}>プロフィール</Link>
+              <Link href={`/user/${session.user.id}`}>
+                <PersonIcon className="mr-2 h-4 w-4" /> プロフィール
+              </Link>
             </DropdownMenuItem>
             <DropdownMenuItem asChild>
-              <Link href="/api/auth/signout">ログアウト</Link>
+              <Link href="/api/auth/signout">
+                <ExitIcon className="mr-2 h-4 w-4" /> ログアウト
+              </Link>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       ) : (
         <Button asChild variant="secondary">
-          <Link href="/api/auth/signin">ログイン</Link>
+          <Link href="/api/auth/signin">
+            <EnterIcon className="mr-2 h-4 w-4" /> ログイン
+          </Link>
         </Button>
       )}
     </header>
