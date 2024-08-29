@@ -16,7 +16,7 @@ export default async function Home() {
             }
           >
             <Suspense fallback={<div>Loading...</div>}>
-              <h1 className="mb-6 text-2xl font-bold">ユーザー一覧</h1>
+              <h1 className="mb-6 text-2xl font-bold">Users</h1>
               <UserCardList users={users} />
             </Suspense>
           </ErrorBoundary>
