@@ -13,7 +13,7 @@ import { PersonIcon, ExitIcon, EnterIcon } from "@radix-ui/react-icons";
 export default async function Header() {
   const session = await getServerAuthSession();
   return (
-    <header className="flex items-center justify-between border-b-2 bg-black px-4 py-3 text-primary-foreground shadow-sm">
+    <header className="fixed left-0 right-0 top-0 z-50 flex items-center justify-between border-b-2 bg-black bg-opacity-80 px-4 py-3 text-primary-foreground shadow-sm">
       <Link href="/" className="text-lg font-bold">
         Live Memory
       </Link>
