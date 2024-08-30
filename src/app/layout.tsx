@@ -28,7 +28,7 @@ export default function RootLayout({
     <html lang="ja" className={`${GeistSans.variable}`}>
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased",
+          "min-h-screen bg-background bg-gradient-to-b from-black to-blue-950 font-sans text-white antialiased",
           fontSans.variable,
         )}
       >
