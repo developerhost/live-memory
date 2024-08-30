@@ -16,7 +16,7 @@ export function UserCard({ id, name, image }: UserCardProps) {
         <CardContent className="flex items-center space-x-4">
           <Avatar>
             <AvatarImage src={image} alt="avatar" />
-            <AvatarFallback>{name.charAt(0)}</AvatarFallback>
+            <AvatarFallback>{name.charAt(0) ?? "U"}</AvatarFallback>
           </Avatar>
           <div>
             <CardTitle className="text-lg font-bold text-white">
