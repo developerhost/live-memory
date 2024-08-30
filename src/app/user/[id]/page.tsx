@@ -4,6 +4,9 @@ import Container from "@/app/_components/Container";
 import { api } from "@/trpc/server";
 import { notFound } from "next/navigation";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { getServerAuthSession } from "@/server/auth";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 interface UserPageProps {
   params: {
@@ -18,8 +21,21 @@ export default async function UserPage({ params }: UserPageProps) {
     return notFound();
   }
 
+  const session = await getServerAuthSession();
+
+  const isOwner = session?.user.id === user.id;
+
   return (
     <Container>
+      {isOwner && (
+        <div className="mt-4 text-center">
+          <Link href={`/user/${user.id}/edit`} passHref>
+            <Button className="bg-blue-500 text-white hover:bg-blue-600">
+              編集
+            </Button>
+          </Link>
+        </div>
+      )}
       <Avatar className="mx-auto h-52 w-52 cursor-pointer">
         <AvatarImage src={user.image ?? ""} alt="User Avatar" />
         <AvatarFallback className="text-8xl">
