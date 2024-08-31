@@ -25,6 +25,10 @@ export default async function UserPage({ params }: UserPageProps) {
 
   const isOwner = session?.user.id === user.id;
 
+  if (!isOwner) {
+    return notFound();
+  }
+
   return (
     <Container>
       {isOwner && (
