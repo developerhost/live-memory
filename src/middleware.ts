@@ -25,5 +25,9 @@ export async function middleware(request: NextRequest) {
 
 // ミドルウェアが適用されるパスを設定
 export const config = {
+  runtime: "nodejs", // rather than "edge"
+  unstable_allowDynamic: [
+    "/node_modules/@babel/runtime/regenerator/index.js", // file causing the build error
+  ],
   matcher: "/user/:id/edit",
 };
