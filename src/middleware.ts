@@ -1,17 +1,21 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { getToken } from "next-auth/jwt";
+import { getSession } from "next-auth/react";
+import type { IncomingHttpHeaders } from "http";
 
 export async function middleware(request: NextRequest) {
-  const token = await getToken({ req: request });
+  // HeadersをIncomingHttpHeaders形式に変換
+  const headers: IncomingHttpHeaders = {};
+  request.headers.forEach((value, key) => {
+    headers[key.toLowerCase()] = value;
+  });
 
   const url = request.nextUrl;
   const userId = url.pathname.split("/")[2];
 
-  console.log("userId", userId);
-  console.log("toke.subn", token?.sub);
+  const session = await getSession({ req: { headers } });
 
-  if (token?.sub !== userId) {
+  if (session?.user?.id !== userId) {
     // 自分以外のユーザーのページにアクセスしようとした場合
     return NextResponse.redirect(new URL("/not-found", request.url));
   }

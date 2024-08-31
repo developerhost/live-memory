@@ -28,12 +28,10 @@ export default async function UserPage({ params }: UserPageProps) {
   return (
     <Container>
       {isOwner && (
-        <div className="mt-4 text-center">
-          <Link href={`/user/${user.id}`} passHref>
-            <Button className="bg-blue-500 text-white hover:bg-blue-600">
-              プロフィールへ
-            </Button>
-          </Link>
+        <div className="mb-4 text-center">
+          <Button asChild variant="secondary" className="font-bold">
+            <Link href={`/user/${user.id}`}>プロフィールへ</Link>
+          </Button>
         </div>
       )}
       <Avatar className="mx-auto h-52 w-52 cursor-pointer">

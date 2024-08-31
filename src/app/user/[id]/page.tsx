@@ -30,12 +30,10 @@ export default async function UserPage({ params }: UserPageProps) {
     <Container>
       <SafeSuspense>
         {isOwner && (
-          <div className="mt-4 text-center">
-            <Link href={`/user/${user.id}/edit`} passHref>
-              <Button className="bg-blue-500 text-white hover:bg-blue-600">
-                編集
-              </Button>
-            </Link>
+          <div className="mb-4 text-center">
+            <Button asChild variant="secondary" className="font-bold">
+              <Link href={`/user/${user.id}/edit`}>編集</Link>
+            </Button>
           </div>
         )}
         <Avatar className="mx-auto h-52 w-52 cursor-pointer">
