@@ -14,7 +14,7 @@ export function UserCardList({ users }: UserListProps) {
           key={user.id}
           id={user.id}
           name={user.name ?? "名無し"}
-          image={user.image ?? ""}
+          image={user.image ?? "/assets/img/default.png"}
         />
       ))}
     </div>

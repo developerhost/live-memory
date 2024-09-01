@@ -7,7 +7,10 @@ import { TRPCReactProvider } from "@/trpc/react";
 
 import { Inter as FontSans } from "next/font/google";
 import { cn } from "@/lib/utils";
-import Header from "./_components/Header";
+import Header from "./_components/layout/Header";
+import Container from "./_components/layout/Container";
+import Footer from "./_components/layout/Footer";
+import ToastProvider from "./_components/providers/ToastProvider";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -34,7 +37,9 @@ export default function RootLayout({
       >
         <TRPCReactProvider>
           <Header />
-          {children}
+          <ToastProvider />
+          <Container>{children}</Container>
+          <Footer />
         </TRPCReactProvider>
       </body>
     </html>

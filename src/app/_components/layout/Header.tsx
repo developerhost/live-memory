@@ -21,7 +21,7 @@ export default async function Header() {
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Avatar className="cursor-pointer">
-              <AvatarImage src={session.user.image ?? ""} alt="User Avatar" />
+              <AvatarImage src={session.user.image ?? "/assets/img/default.png"} alt="User Avatar" />
               <AvatarFallback>
                 {session.user.name?.charAt(0) ?? "U"}
               </AvatarFallback>
