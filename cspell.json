@@ -3,8 +3,10 @@
   "language": "en",
   "words": [
     "CLIENTVAR",
+    "cloudinary",
     "clsx",
     "googleusercontent",
+    "hookform",
     "NEXTAUTH",
     "nextjs",
     "nextui",
