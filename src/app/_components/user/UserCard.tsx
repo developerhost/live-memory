@@ -2,11 +2,9 @@ import React from "react";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Link from "next/link";
-import type { RouterOutputs } from "@/trpc/react";
+import type { UserProps } from "./UserCardList";
 
-type User = RouterOutputs["user"]["getUserById"];
-
-export function UserCard({ id, name, image }: User) {
+export function UserCard({ id, name, image }: UserProps) {
   return (
     <Card className="mx-auto w-[200px] bg-white bg-opacity-10 pt-2 shadow-lg hover:bg-gray-900">
       <Link href={`/user/${id}`}>
