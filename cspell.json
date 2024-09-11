@@ -15,6 +15,7 @@
     "signin",
     "signout",
     "superjson",
+    "tanstack",
     "trpc",
     "typesafety"
   ], // 固有名詞などチェックをスキップしたい単語を登録する
