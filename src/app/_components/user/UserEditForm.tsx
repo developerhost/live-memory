@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Loader2 } from "lucide-react";
+import { Loader2, PencilIcon } from "lucide-react";
 import { useUserEditForm } from "./hooks/useUserEditForm";
 
 type User = RouterOutputs["user"]["getUserById"];
@@ -34,7 +34,7 @@ export default function UserEditForm({ user }: { user: User }) {
             acceptType={["jpg", "jpeg", "png"]}
           >
             {({ imageList, onImageUpdate }) => (
-              <div className="flex w-full flex-col items-center justify-center">
+              <div className="group flex w-full flex-col items-center justify-center overflow-hidden rounded-full bg-transparent">
                 {imageList.map((image, index) => (
                   <div key={index}>
                     {image.dataURL && (
@@ -45,22 +45,16 @@ export default function UserEditForm({ user }: { user: User }) {
                           alt={user.name ?? "avatar"}
                           className="rounded-full object-cover"
                         />
+                        <div
+                          className="absolute inset-0 flex cursor-pointer items-center justify-center bg-black bg-opacity-50 opacity-0 transition-opacity group-hover:opacity-100"
+                          onClick={() => onImageUpdate(0)}
+                        >
+                          <PencilIcon className="h-8 w-8 text-white" />
+                        </div>
                       </div>
                     )}
                   </div>
                 ))}
-
-                {imageList.length > 0 && (
-                  <div className="mt-3 text-center">
-                    <Button
-                      variant="outline"
-                      onClick={() => onImageUpdate(0)}
-                      className="text-black"
-                    >
-                      アバターを変更
-                    </Button>
-                  </div>
-                )}
               </div>
             )}
           </ImageUploading>
