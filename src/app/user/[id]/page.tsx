@@ -44,7 +44,9 @@ export default async function UserPage({ params }: UserPageProps) {
         </AvatarFallback>
       </Avatar>
       <h2 className="text-center text-3xl font-bold">{user.name}</h2>
-      <p className="text-center text-lg text-gray-500">{user.introduction}</p>
+      <p className="whitespace-pre-line text-center text-lg text-gray-500">
+        {user.introduction}
+      </p>
     </SafeSuspense>
   );
 }
