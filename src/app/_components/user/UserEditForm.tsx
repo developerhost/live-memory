@@ -40,10 +40,13 @@ export default function UserEditForm({ user }: { user: User }) {
                     {image.dataURL && (
                       <div className="relative h-24 w-24">
                         <Image
-                          fill
                           src={image.dataURL}
                           alt={user.name ?? "avatar"}
                           className="rounded-full object-cover"
+                          fill
+                          priority
+                          quality={80}
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         />
                         <div
                           className="absolute inset-0 flex cursor-pointer items-center justify-center bg-black bg-opacity-50 opacity-0 transition-opacity group-hover:opacity-100"
