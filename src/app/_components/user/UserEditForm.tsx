@@ -98,10 +98,15 @@ export default function UserEditForm({ user }: { user: User }) {
               </FormItem>
             )}
           />
-          <button type="submit" disabled={isPending} className="w-full">
+          <Button
+            type="submit"
+            disabled={isPending}
+            className="w-full text-black"
+            variant="outline"
+          >
             {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
             変更
-          </button>
+          </Button>
         </form>
       </Form>
     </div>
